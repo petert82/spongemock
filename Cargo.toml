@@ -1,7 +1,7 @@
 [package]
 name = "spongemock"
 description = """
-Util for creating mOcKinG sPoNgeBoB text from normal text.
+Util for creating MoCkINg SpOnGEbOb text from normal text.
 """
 version = "0.1.0"
 authors = ["Peter Thompson <peter.thompson@dunelm.org.uk"]
