@@ -1,5 +1,5 @@
 //! `spongemock` provides a convenient way to MoCk ThInGs in the style of
-// ! [Mocking SpongeBob](https://knowyourmeme.com/memes/mocking-spongebob).
+//! [Mocking SpongeBob](https://knowyourmeme.com/memes/mocking-spongebob).
 
 /// Returns a MoCkInG version of the given input
 ///
