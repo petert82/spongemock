@@ -6,9 +6,9 @@
 /// # Example
 ///
 /// ```
-/// let mocked = spongemock::mock("a sensible example");
+/// let mocked = spongemock::mock("a sensible EXAMPLE.");
 ///
-/// assert_eq!("A SeNsIbLe eXaMpLe", mocked);
+/// assert_eq!("A SeNsIbLe eXaMpLe.", mocked);
 /// ```
 pub fn mock<S: Into<String>>(input: S) -> String {
     let input = input.into();
@@ -16,8 +16,12 @@ pub fn mock<S: Into<String>>(input: S) -> String {
     let mut make_uppercase = true;
 
     for c in input.chars() {
-        if make_uppercase {
+        if make_uppercase && c.is_lowercase(){
             for upper in c.to_uppercase() {
+                out.push(upper);
+            }
+        } else if !make_uppercase && c.is_uppercase() {
+            for upper in c.to_lowercase() {
                 out.push(upper);
             }
         } else {
@@ -35,8 +39,10 @@ mod test {
 
     #[test]
     fn basic_mocking() {
-        assert_eq!("FoO".to_string(), mock("foo"));
-        assert_eq!("1234567890!@#$%^&*()-=_+".to_string(), mock("1234567890!@#$%^&*()-=_+"));
-        assert_eq!("ÄöÜßSS".to_string(), mock("äöüßß"));
+        assert_eq!(mock("abcdefghijklmnopqrstuvwxyz"), "AbCdEfGhIjKlMnOpQrStUvWxYz".to_string());
+        assert_eq!(mock("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "AbCdEfGhIjKlMnOpQrStUvWxYz".to_string());
+        assert_eq!(mock("1234567890!@#$%^&*()-=_+"), "1234567890!@#$%^&*()-=_+".to_string());
+        assert_eq!(mock("äöüßßâç"), "ÄöÜßSSâÇ".to_string());
+        assert_eq!(mock("✌🤞😎"), "✌🤞😎".to_string());
     }
 }
