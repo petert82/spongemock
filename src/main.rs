@@ -28,7 +28,7 @@ fn main() {
 fn run_app() -> Result<(), io::Error> {
     let opt: Opt = Opt::from_args();
 
-    if opt.mock_vals.len() > 0 {
+    if !opt.mock_vals.is_empty() {
         for mock_val in opt.mock_vals {
             println!("{}", mock(mock_val));
         }
