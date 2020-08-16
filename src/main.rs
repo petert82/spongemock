@@ -1,4 +1,5 @@
 use spongemock::mock;
+use std::io::{self, BufRead};
 use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
@@ -8,14 +9,33 @@ use structopt::StructOpt;
 /// line.
 struct Opt {
     /// Each argument will be MoCkEd on a new line in the output.
-    #[structopt(name = "INPUT_TO_MOCK", required = true)]
+    ///
+    /// If INPUT_TO_MOCK is not provided, input will instead be read from stdin.
+    #[structopt(name = "INPUT_TO_MOCK")]
     mock_vals: Vec<String>,
 }
 
 fn main() {
-    let opt = Opt::from_args();
+    std::process::exit(match run_app() {
+        Ok(_) => 0,
+        Err(error) => {
+            eprintln!("{:?}", error);
+            1
+        }
+    });
+}
 
-    for mock_val in opt.mock_vals {
-        println!("{}", mock(mock_val));
+fn run_app() -> Result<(), io::Error> {
+    let opt: Opt = Opt::from_args();
+
+    if opt.mock_vals.len() > 0 {
+        for mock_val in opt.mock_vals {
+            println!("{}", mock(mock_val));
+        }
+    } else {
+        for line in io::stdin().lock().lines() {
+            println!("{}", mock(line?));
+        }
     }
+    Ok(())
 }
