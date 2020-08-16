@@ -1,0 +1,25 @@
+name: Checks and Tests
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Run fmt
+        run: cargo fmt -- --check
+      - name: Run clippy
+        run: cargo clippy -- --deny=warnings
+      - name: Run check
+        run: cargo check
+      - name: Run tests
+        run: cargo test
