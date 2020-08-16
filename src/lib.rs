@@ -28,3 +28,15 @@ pub fn mock<S: Into<String>>(input: S) -> String {
 
     out
 }
+
+#[cfg(test)]
+mod test {
+    use super::mock;
+
+    #[test]
+    fn basic_mocking() {
+        assert_eq!("FoO".to_string(), mock("foo"));
+        assert_eq!("1234567890!@#$%^&*()-=_+".to_string(), mock("1234567890!@#$%^&*()-=_+"));
+        assert_eq!("ÄöÜßSS".to_string(), mock("äöüßß"));
+    }
+}
