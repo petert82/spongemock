@@ -7,8 +7,8 @@ Simply provide the input to be MoCkEd as arguments to the app. Each input argume
 
 ```
 $ spongemock "this is a" "worthwhile use of my time"
-ThIs iS A
-WoRtHwHiLe uSe oF My tImE
+ThIs Is A
+WoRtHwHiLe UsE oF mY tImE
 ```
 
 If no arguments are given, input will be read from stdin.
@@ -16,8 +16,8 @@ If no arguments are given, input will be read from stdin.
 ```
 $ fortune | spongemock | cowsay
  ________________________________________
-/ YoU WiLl iNhErIt sOmE MoNeY Or a sMaLl \
-\ pIeCe oF LaNd.                         /
+/ YoU wIlL iNhErIt SoMe MoNeY oR a SmAlL \
+\ pIeCe Of LaNd.                         /
  ----------------------------------------
         \   ^__^
          \  (oo)\_______
