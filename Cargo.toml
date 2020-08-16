@@ -5,6 +5,7 @@ Util for creating mOcKinG sPoNgeBoB text from normal text.
 """
 version = "0.1.0"
 authors = ["Peter Thompson <peter.thompson@dunelm.org.uk"]
+repository = "https://github.com/petert82/spongemock/"
 license = "MIT"
 license-file = "LICENSE"
 edition = "2018"
