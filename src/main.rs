@@ -1,13 +1,21 @@
 use spongemock::mock;
-use std::env;
+use structopt::StructOpt;
+
+#[derive(Debug, StructOpt)]
+/// Outputs a MoCkInG version of its input
+///
+/// Takes each INPUT_TO_MOCK argument, converts it to a MoCkEd version and outputs it on its own
+/// line.
+struct Opt {
+    /// Each argument will be MoCkEd on a new line in the output.
+    #[structopt(name = "INPUT_TO_MOCK", required = true)]
+    mock_vals: Vec<String>,
+}
 
 fn main() {
-    if env::args().len() < 2 {
-        eprintln!("Error: {}", mock("you didn't supply any input??"));
-        std::process::exit(1);
-    }
+    let opt = Opt::from_args();
 
-    for mock_val in env::args().skip(1) {
+    for mock_val in opt.mock_vals {
         println!("{}", mock(mock_val));
     }
 }
