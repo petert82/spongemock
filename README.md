@@ -2,7 +2,7 @@
 
 ![Checks and Tests](https://github.com/petert82/spongemock/workflows/Checks%20and%20Tests/badge.svg?event=push)
 
-A tiny (VeRy sEnSiBlE) Rust library and CLI app for creating [Mocking SpongeBob](https://knowyourmeme.com/memes/mocking-spongebob) text from normal input.
+A tiny (VeRy SeNsIbLe) Rust library and CLI app for creating [Mocking SpongeBob](https://knowyourmeme.com/memes/mocking-spongebob) text from normal input.
 
 ## Usage
 ### CLI
