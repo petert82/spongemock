@@ -30,11 +30,11 @@ fn run_app() -> Result<(), io::Error> {
 
     if !opt.mock_vals.is_empty() {
         for mock_val in opt.mock_vals {
-            println!("{}", mock(mock_val));
+            println!("{}", mock(&mock_val));
         }
     } else {
         for line in io::stdin().lock().lines() {
-            println!("{}", mock(line?));
+            println!("{}", mock(&line?));
         }
     }
     Ok(())

@@ -3,7 +3,7 @@ name = "spongemock"
 description = """
 Util for creating MoCkINg SpOnGEbOb text from normal text.
 """
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Peter Thompson <peter.thompson@dunelm.org.uk"]
 repository = "https://github.com/petert82/spongemock/"
 license-file = "LICENSE"
